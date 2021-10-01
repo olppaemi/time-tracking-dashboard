@@ -1,6 +1,6 @@
 import reset from "styled-reset";
 import { createGlobalStyle, ThemeProps } from "styled-components";
-import media from "styled-media-query";
+import { media } from "./media";
 import { rem } from "./utils";
 
 export const GlobalStyles = createGlobalStyle`
@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${rem(32)};
     font-weight: 300;
 
-    ${media.greaterThan("large")`
+    ${media.greaterThan("lg")`
       font-size: ${rem(56)};
     `}
     
@@ -32,8 +32,9 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${rem(24)};
     font-weight: 300;
 
-    ${media.greaterThan("large")`
+    ${media.greaterThan("lg")`
       font-size: ${rem(40)};
+      line-height:${rem(47)};
     `}    
   }
 `;

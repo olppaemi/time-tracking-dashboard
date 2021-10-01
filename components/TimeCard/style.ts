@@ -1,5 +1,6 @@
 import styled, { DefaultTheme } from "styled-components";
-import { rem } from "../../styles/utils";
+import { media } from "styles/media";
+import { rem } from "styles/utils";
 
 type CardProps = {
   title: string;
@@ -51,9 +52,14 @@ export const Card = styled.div<CardProps>`
   justify-content: flex-end;
   border-radius: ${({ theme }) => theme.borderRadius}
     ${({ theme }) => theme.borderRadius} 50% 50%;
-  background: top -10% right 10% / ${rem(78)} no-repeat url(${({ title }) => handleBackground(title)});
+  background: top -2% right 10% / ${rem(78)} no-repeat url(${({ title }) => handleBackground(title)});
   background-color: ${({ title, theme }) =>
     handleBackgroundColor(title, theme)};
+
+  ${media.greaterThan("lg")`
+    width: ${rem(255)};
+    height: ${rem(244)};    
+  `}
 `;
 
 export const CardContent = styled.div`
@@ -66,6 +72,11 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  ${media.greaterThan("lg")`    
+    height: ${rem(199)};
+    padding: ${rem(30)};
+  `}
 `;
 
 export const Wrapper = styled.div`
@@ -81,8 +92,17 @@ export const Time = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.greaterThan("lg")`
+    flex-direction: column;
+    align-items: flex-start;
+  `}
 `;
-export const Current = styled.h1``;
+export const Current = styled.h1`
+  ${media.greaterThan("lg")`
+    margin-bottom: ${rem(8)};
+  `}
+`;
 export const Previous = styled.p`
   font-size: ${rem(15)};
   font-weight: 400;
